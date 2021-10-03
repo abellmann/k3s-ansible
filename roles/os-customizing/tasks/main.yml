@@ -1,0 +1,12 @@
+---
+# tasks file for os-customizing
+- name: remove fancy prompts conflicting with emacs tramp
+  file:
+    path: /home/pirate/.bash_prompt
+    state: absent
+
+- name: add custom bashrc
+  template:
+    src: bashrc.j2
+    dest: /home/pirate/.bashrc
+    mode: '0644'
